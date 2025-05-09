@@ -17,7 +17,7 @@ export function CTASection() {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div>
             <h3 className="text-2xl font-bold mb-2">
-              Join The <span className="text-primary">DigiSoft</span> Experience
+              Join The <span className="text-primary">Zeus Corporation</span> Experience
             </h3>
             <p className="text-gray-400">Top Notch Enterprise Solutions.</p>
           </div>
