@@ -16,18 +16,18 @@ export function Hero() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const [currentFeature, setCurrentFeature] = useState(0);
   const [current, setCurrent] = useState(0);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
+  const [, setMousePosition] = useState({ x: 0, y: 0 });
+  // const [isHovering] = useState(false);
 
-  const handleMouseMove = (e: any) => {
-    if (!isHovering) return;
+  // const handleMouseMove = (e: any) => {
+  //   if (!isHovering) return;
 
-    const bounds = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - bounds.left) / bounds.width;
-    const y = (e.clientY - bounds.top) / bounds.height;
+  //   const bounds = e.currentTarget.getBoundingClientRect();
+  //   const x = (e.clientX - bounds.left) / bounds.width;
+  //   const y = (e.clientY - bounds.top) / bounds.height;
 
-    setMousePosition({ x, y });
-  };
+  //   setMousePosition({ x, y });
+  // };
 
   // Reset animation on component mount
   useEffect(() => {

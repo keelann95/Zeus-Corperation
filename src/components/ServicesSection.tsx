@@ -1,4 +1,4 @@
-import { ChevronRight, Code, Database, Globe, MessageSquare, Shield, Smartphone, Star, Zap } from 'lucide-react';
+import { ChevronRight, Code, Database, Globe, MessageSquare, Shield, Smartphone } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 
