@@ -1,54 +1,122 @@
-# React + TypeScript + Vite
+# SafariCode - Modern Web Development
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![SafariCode Logo](/src/assets/Zeus%20Corp.svg)
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+SafariCode is a modern web development platform providing lightning-fast, mobile-optimized, and enterprise-grade web solutions. This project showcases a sleek tech-forward design with monospaced typography and modern UI elements.
 
-## Expanding the ESLint configuration
+## 🚀 Quick Start
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+```bash
+# Install dependencies
+npm install
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Visit [http://localhost:3000](http://localhost:3000) to see the application running.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🔍 Common Issues & Solutions
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### 404 Errors When Navigating
+
+If you're experiencing 404 errors when clicking links while the app is deployed:
+
+1. **Static Export Configuration**
+
+   This is likely because your Next.js app is configured for static export (using `next export`), which doesn't support client-side routing out of the box.
+
+   Add the following to your `next.config.js`:
+
+   ```js
+   /** @type {import('next').NextConfig} */
+   const nextConfig = {
+     output: "standalone",
+     trailingSlash: true,
+   };
+
+   module.exports = nextConfig;
+   ```
+
+2. **Deployment Platform Configuration**
+
+   Ensure your hosting platform is configured to handle client-side routing:
+
+   - **Vercel/Netlify**: Add a `_redirects` file or `vercel.json` with appropriate redirect rules
+   - **Apache**: Configure `.htaccess` file
+   - **Nginx**: Update server configuration
+
+   Example Vercel configuration (`vercel.json`):
+
+   ```json
+   {
+     "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+   }
+   ```
+
+   Example Netlify configuration (`_redirects`):
+
+   ```
+   /*    /index.html   200
+   ```
+
+3. **Custom Server Setup**
+
+   If you're using a custom server, make sure it's configured to serve your `index.html` for all routes.
+
+### Development vs Production Behavior
+
+If the routing works in development but not in production:
+
+- Development uses Next.js development server which handles client-side routing
+- Production may use a static file server which requires specific configuration
+
+## 🧩 Project Structure
+
 ```
+safaricode/
+├── components/        # Reusable UI components
+│   ├── layout/        # Layout components (Navbar, Footer, etc.)
+│   └── ui/            # UI elements (Buttons, Cards, etc.)
+├── pages/             # Application pages
+├── public/            # Static assets
+├── styles/            # Global styles
+└── utils/             # Utility functions
+```
+
+## ⚙️ Key Features
+
+- **Modern Navbar**: Tech-forward navbar with monospaced typography
+- **3D Website Preview**: Interactive website preview with floating feature cards
+- **Mobile Responsive**: Fully responsive design for all device sizes
+- **Performance Optimized**: Lighthouse score of 95+ for performance
+
+## 📱 Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## 🛠️ Built With
+
+- Next.js
+- React
+- Tailwind CSS
+- Framer Motion
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 📬 Contact
+
+For any questions or support, please contact us at support@szeuscorpeation.ke
