@@ -1,23 +1,17 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Globe,
   ArrowRight,
-  MessageSquare,
   Smartphone,
-  Star,
   Zap,
   ChevronDown,
   Play,
   Code,
-  Server,
   Shield,
 } from "lucide-react";
 
 export function Hero() {
   const [loaded, setLoaded] = useState(false);
-  const [hoverService, setHoverService] = useState(null);
-  const videoRef = useRef(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
   const [currentFeature, setCurrentFeature] = useState(0);
@@ -31,7 +25,6 @@ export function Hero() {
     const bounds = e.currentTarget.getBoundingClientRect();
     const x = (e.clientX - bounds.left) / bounds.width;
     const y = (e.clientY - bounds.top) / bounds.height;
-    
 
     setMousePosition({ x, y });
   };
@@ -63,7 +56,7 @@ export function Hero() {
     // This is a placeholder for the concept
     const handleMouseMove = (e: MouseEvent) => {
       if (!cursorRef.current) return;
-      const rect = containerRef.current !.getBoundingClientRect();
+      const rect = containerRef.current!.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
 
